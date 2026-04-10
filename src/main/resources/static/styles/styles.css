@@ -1,0 +1,172 @@
+/* VARIABLES */
+:root {
+	--colorPrincipal: #1e293b;
+	--colorSecundario: #334155;
+	--colorAccent: #3b82f6;
+
+	--colorTexto: #0f172a;
+	--colorTextoClaro: #f1f5f9;
+
+	--fondo: #f8fafc;
+	--fondoCard: #ffffff;
+
+	--borderRadius: 12px;
+	--shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+	--fuente: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* RESET */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: var(--fuente);
+}
+
+/* BODY */
+body {
+	background: var(--fondo);
+	color: var(--colorTexto);
+	line-height: 1.5;
+}
+
+/* ================= HEADER ================= */
+header {
+
+	max-height: 150px;
+	/* 🔥 evita que crezca */
+	overflow: hidden;
+	background: linear-gradient(135deg, var(--colorPrincipal), var(--colorSecundario));
+	color: var(--colorTextoClaro);
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	padding: 8px 20px;
+	/* 🔥 aún más compacto */
+	box-shadow: var(--shadow);
+}
+
+#cabecera_izq img {
+	height: 60px;
+	/* 🔥 controla el tamaño REAL */
+	width: auto;
+	object-fit: contain;
+}
+
+/* CENTRO */
+#cabecera_cen {
+	text-align: center;
+}
+
+/* 🔥 CONTROL TOTAL DE IMÁGENES DEL HEADER */
+header img {
+	max-height: 90px;
+	width: auto;
+	object-fit: contain;
+}
+
+#cabecera_cen h1 {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+#cabecera_cen h2 {
+	font-size: 11px;
+	opacity: 0.7;
+}
+
+/* DERECHA */
+#cabecera_der {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+#cabecera_der img {
+	height: 20px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+#cabecera_der img:hover {
+	transform: scale(1.1);
+}
+
+/* ================= MENU ================= */
+nav {
+	background: var(--fondoCard);
+	box-shadow: var(--shadow);
+}
+
+nav ul {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	gap: 30px;
+	padding: 12px;
+}
+
+/* LINKS */
+nav a {
+	text-decoration: none;
+	color: var(--colorTexto);
+	font-weight: 600;
+	font-size: 14px;
+
+	padding: 6px 14px;
+	border-radius: 8px;
+
+	transition: all 0.2s ease;
+}
+
+/* HOVER PRO */
+nav a:hover {
+	background: var(--colorAccent);
+	color: white;
+	transform: translateY(-1px);
+}
+
+/* ================= MAIN ================= */
+main {
+	max-width: 1000px;
+	margin: 30px auto;
+	padding: 15px;
+}
+
+/* ================= TITULOS ================= */
+h1 {
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 28px;
+}
+
+h2 {
+	margin-bottom: 15px;
+	font-size: 24px;
+}
+
+/* ================= SECCIONES ================= */
+section {
+	margin-bottom: 30px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+	margin-top: 40px;
+	text-align: center;
+	padding: 15px;
+
+	background: var(--colorPrincipal);
+	color: var(--colorTextoClaro);
+
+	font-size: 13px;
+}
+
+header a {
+	color: white;
+	text-decoration: none;
+	font-weight: 600;
+}

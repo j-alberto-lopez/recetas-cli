@@ -1,0 +1,32 @@
+<header th:fragment="cabecera" class="header">
+
+	<div class="header-left">
+		<img th:src="@{/imagenes/logo.png}" class="logo">
+	</div>
+
+	<div class="header-center">
+		<h1>Recetario Jesús López</h1>
+		<h2>Recetas del norte</h2>
+	</div>
+
+	<div class="header-right">
+		<a th:if="${session.s_token != null}" th:href="@{/CerrarSesion}" class="logout">Cerrar sesión</a>
+		<img th:src="@{/imagenes/facebook.png}" class="icon">
+		<img th:src="@{/imagenes/instagram.png}" class="icon">
+	</div>
+
+</header>
+
+
+<nav th:fragment="menu" class="menu">
+	<ul>
+		<li><a th:href="@{/recetas}">Recetas</a></li>
+		<li><a th:href="@{/dificultades}">Dificultades</a></li>
+		<li><a th:href="@{/MenuAdmin}">Admin</a></li>
+	</ul>
+</nav>
+
+
+<footer th:fragment="pie" class="footer">
+	<p>Recetario Jesús López</p>
+</footer>

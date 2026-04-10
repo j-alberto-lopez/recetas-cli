@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bar Labea</title>
+	<link rel="stylesheet" href="styles/styles.css">
+	<link rel="stylesheet" href="styles/formulario.css">
+	<script src="js/hashearPass.js"></script>
+</head>
+
+<body>
+	<header th:include="plantillas/plantillas.html::cabecera"></header>
+
+	<nav th:include="plantillas/plantillas.html::menu"></nav>
+
+	<main>
+		<section>
+			
+			<form th:action="@{/ModificarUsuario}" method="POST" th:object="${obj_usuario}">
+				<label for="user">ID Hidden:</label>
+				<input type="text" th:field="*{id}" required>
+				
+				<label for="user">Usuario:</label>
+				<input type="text" th:field="*{user}" required>
+
+				<label for="pass">Contraseña REAL:</label>
+				<input type="text" id="pass_sin_hash"  oninput="calcularSha256();">
+				dejad vacio para mantener la antigua
+
+				<label for="pass">Contraseña Hidden:</label>
+				<input type="text" th:field="*{pass}" required>
+
+				<label for="salt">Salt hidden:</label>
+				<input type="text" th:field="*{salt}" required>
+
+				<label for="rol.id">Rol ID:</label>
+				<select th:field="*{rol.id}" required>
+					<option th:each="elem : ${listaRoles}" th:value="${elem.id}" th:text="${elem.nombre}"></option>
+				</select>
+
+				<input type="submit" value="Modificar Usuario"></input>
+			</form>
+
+		</section>
+	</main>
+
+	<footer th:include="plantillas/plantillas.html::pie"></footer>
+</body>
+
+</html>

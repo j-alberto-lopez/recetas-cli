@@ -1,0 +1,122 @@
+/* CONTENEDOR TABLA */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 30px;
+
+	background: var(--fondoCard);
+	border-radius: var(--borderRadius);
+	overflow: hidden;
+
+	box-shadow: var(--shadow);
+}
+
+/* CABECERA */
+th {
+	background: linear-gradient(135deg, var(--colorPrincipal), var(--colorSecundario));
+	color: var(--colorTextoClaro);
+
+	padding: 14px;
+	text-align: left;
+	font-size: 13px;
+	letter-spacing: 0.5px;
+}
+
+/* CELDAS */
+td {
+	padding: 14px;
+	border-bottom: 1px solid #e5e7eb;
+	font-size: 14px;
+}
+
+/* FILAS */
+tr {
+	transition: 0.2s;
+}
+
+/* HOVER FILA */
+tr:hover {
+	background: #f8fafc;
+	transform: scale(1.002);
+}
+
+/* ÚLTIMA FILA SIN BORDE */
+tr:last-child td {
+	border-bottom: none;
+}
+
+/* BOTONES */
+td a {
+	display: inline-block;
+
+	background: linear-gradient(135deg, var(--colorAccent), #2563eb);
+	color: white;
+
+	padding: 6px 12px;
+	border-radius: 6px;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: 600;
+
+	margin-right: 6px;
+	transition: all 0.2s ease;
+}
+
+/* HOVER BOTONES */
+td a:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* BOTÓN BORRAR */
+td a[href*="borrar"] {
+	background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+/* BOTÓN EDITAR */
+td a[href*="editar"] {
+	background: linear-gradient(135deg, #10b981, #059669);
+}
+
+/* CENTRAR ACCIONES */
+td:last-child {
+	white-space: nowrap;
+}
+
+/* TABLA RESPONSIVE  */
+@media (max-width: 768px) {
+
+	table,
+	thead,
+	tbody,
+	th,
+	td,
+	tr {
+		display: block;
+	}
+
+	thead {
+		display: none;
+	}
+
+	tr {
+		margin-bottom: 15px;
+		background: white;
+		border-radius: 10px;
+		padding: 10px;
+		box-shadow: var(--shadow);
+	}
+
+	td {
+		border: none;
+		padding: 8px 0;
+	}
+
+	td::before {
+		content: attr(data-label);
+		font-weight: bold;
+		display: block;
+		font-size: 12px;
+		color: #6b7280;
+	}
+}

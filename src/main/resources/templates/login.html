@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Labea</title>
+    <link rel="stylesheet" href="styles/styles.css">
+	<link rel="stylesheet" href="styles/loginStyles.css">
+	<script src="js/hashearPass.js"></script>
+</head>
+
+<body>
+   <header th:include="plantillas/plantillas.html::cabecera"></header>
+
+   <form action="/ValidarUsuario" method="post">
+   <label>Usuario:</label>
+   <input type="text" name="user" required>
+
+   <br><br>
+
+   <label>Contraseña:</label>
+   <input type="password" id="pass_sin_hash" required oninput="calcularSha256();">
+
+   <input type="text" id="pass" name="pass" value=""></input>
+
+   <br><br>
+
+   <button type="submit">Entrar</button>
+
+   </form>
+
+    <footer th:include="plantillas/plantillas.html::pie"></footer>
+</body>
+
+</html>

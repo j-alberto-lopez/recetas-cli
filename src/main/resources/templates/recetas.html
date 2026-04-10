@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bar Labea</title>
+	<link rel="stylesheet" th:href="@{/styles/styles.css}">
+	<link rel="stylesheet" th:href="@{/styles/formulario.css}">
+	<link rel="stylesheet" th:href="@{/styles/tablas.css}">
+	<script th:src="@{/js/hashearPass.js}"></script>
+</head>
+
+<body>
+	<header th:include="plantillas/plantillas.html::cabecera"></header>
+
+	<nav th:include="plantillas/plantillas.html::menu"></nav>
+
+<h2>Recetas</h2>
+
+<!-- form
+<form action="/recetas" method="post">
+    Nombre: <input type="text" name="nombre">
+
+    <select name="dificultad.id">
+        <option th:each="d : ${dificultades}"
+                th:value="${d.id}"
+                th:text="${d.nombre}">
+        </option>
+    </select>
+
+    <button type="submit">Guardar</button>
+</form>
+-->
+
+
+
+
+<!--form prueba-->
+<form th:action="@{/recetas}" th:object="${receta}" method="post">
+
+    <input type="hidden" th:field="*{id}">
+
+    Nombre: 
+    <input type="text" th:field="*{nombre}">
+
+    <select th:field="*{dificultad.id}">
+        <option th:each="d : ${dificultades}"
+                th:value="${d.id}"
+                th:text="${d.nombre}">
+        </option>
+    </select>
+
+    <button type="submit">Guardar</button>
+</form>
+
+<hr>
+
+
+
+<!--  TABLA -->
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Dificultad</th>
+        <th>Acciones</th>
+    </tr>
+
+    <tr th:each="r : ${recetas}">
+        <td th:text="${r.nombre}"></td>
+        <td th:text="${r.dificultad.nombre}"></td>
+        <td>
+            <a th:href="@{/recetas/borrar/{id}(id=${r.id})}">Borrar</a>
+			<a th:href="@{/recetas/editar/{id}(id=${r.id})}">Editar</a>
+        </td>
+    </tr>
+</table>
+
+	<footer th:include="plantillas/plantillas.html::pie"></footer>
+</body>
+
+</html>

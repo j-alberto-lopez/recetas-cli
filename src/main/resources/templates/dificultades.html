@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bar Labea</title>
+	<link rel="stylesheet" href="styles/styles.css">
+	<link rel="stylesheet" href="styles/formulario.css">
+	<link rel="stylesheet" href="styles/tablas.css">
+	<script src="js/hashearPass.js"></script>
+</head>
+
+<body>
+	<header th:include="plantillas/plantillas.html::cabecera"></header>
+
+	<nav th:include="plantillas/plantillas.html::menu"></nav>
+
+<h1>Dificultades</h1>
+
+<form action="/dificultades" method="post">
+    <input type="text" name="nombre" placeholder="Nueva dificultad">
+    <button type="submit">Guardar</button>
+</form>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+    </tr>
+
+    <tr th:each="d : ${dificultades}">
+        <td th:text="${d.id}"></td>
+        <td th:text="${d.nombre}"></td>
+        <td>
+            <a th:href="@{'/dificultades/borrar/' + ${d.id}}">Borrar</a>
+        </td>
+    </tr>
+</table>
+
+	<footer th:include="plantillas/plantillas.html::pie"></footer>
+</body>
+
+</html>
